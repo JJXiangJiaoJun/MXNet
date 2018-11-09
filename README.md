@@ -1,6 +1,6 @@
 # MXNet
 MXNet的学习之路
-
+----
 ## 2018-11-9
 &emsp;&emsp;完成了第一个线性回归模型的训练。
 + 学习了MXNet自动求梯度过程
@@ -34,3 +34,4 @@ MXNet的学习之路
 				yield features.take(j),labels.take(j)
 		```
 每天进步一点点~~~~~
+----

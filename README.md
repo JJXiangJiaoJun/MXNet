@@ -83,3 +83,11 @@ MXNet的学习之路
 	- 进行反向传播
 	- 使用优化器对参数进行迭代优化
 	- 打印日志、循环训练
+------
+## 2018-11-17
+&emsp;&emsp;完成了L2正则化，以及dropout的实现
++ gluon接口中，`nn.Dense(activation)`选择不同的激活函数
++ 定义 `gluon.Trainer` 时 **'wd'** 关键字是L2正则化的超参数，加入之后网络会加上权重衰减
++ gluon接口中，使用`nn.Dropout(drop_prob)`来添加一个dropout层，其中drop_prob为超参数
++ `nd.random.uniform(low,up)`可以用来生成固定范围的随机数
++ `auto_grad.is_training()`可以用来判断是否在训练

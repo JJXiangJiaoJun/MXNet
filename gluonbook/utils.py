@@ -226,15 +226,16 @@ def linreg(X, w, b):
 def load_data_fashion_mnist(batch_size, resize=None, root=os.path.join(
         '~', '.mxnet', 'datasets', 'fashion-mnist')):
     """Download the fashion mnist dataset and then load into memory."""
-    root = os.path.expanduser(root)
+    #root = os.path.expanduser(root)
+    path = ('../data/FashionMNIST/')
     transformer = []
     if resize:
         transformer += [gdata.vision.transforms.Resize(resize)]
     transformer += [gdata.vision.transforms.ToTensor()]
     transformer = gdata.vision.transforms.Compose(transformer)
 
-    mnist_train = gdata.vision.FashionMNIST(root=root, train=True)
-    mnist_test = gdata.vision.FashionMNIST(root=root, train=False)
+    mnist_train = gdata.vision.FashionMNIST(root=path, train=True)
+    mnist_test = gdata.vision.FashionMNIST(root=path, train=False)
     num_workers = 0 if sys.platform.startswith('win32') else 4
 
     train_iter = gdata.DataLoader(mnist_train.transform_first(transformer),

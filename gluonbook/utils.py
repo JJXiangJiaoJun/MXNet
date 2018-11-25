@@ -265,6 +265,7 @@ def load_data_pikachu(batch_size, edge_size=256):
     """Download the pikachu dataest and then load into memory."""
     data_dir = '../data/pikachu'
     _download_pikachu(data_dir)
+    #aug = image.CreateDetAugmenter(data_shape  = (3,edge_size,edge_size),mean=True,std= True)
     train_iter = image.ImageDetIter(
         path_imgrec=os.path.join(data_dir, 'train.rec'),
         path_imgidx=os.path.join(data_dir, 'train.idx'),
@@ -273,12 +274,14 @@ def load_data_pikachu(batch_size, edge_size=256):
         shuffle=True,
         rand_crop=1,
         min_object_covered=0.95,
-        max_attempts=200)
+        max_attempts=200,
+        )
     val_iter = image.ImageDetIter(
         path_imgrec=os.path.join(data_dir, 'val.rec'),
         batch_size=batch_size,
         data_shape=(3, edge_size, edge_size),
-        shuffle=False)
+        shuffle=False,
+       )
     return train_iter, val_iter
 
 
